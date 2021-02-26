@@ -15,16 +15,14 @@ public class SumOfNum {
         String operation = reader.readLine();
         String number2 = reader.readLine();
 
-        if(number1.length() == 1 || number1.charAt(0) == 'X'){
+        if(number1.length() == 1 || number1.charAt(0) == 'I' || number1.charAt(0) == 'V') {
             i1.initializationDes(number1);
-        }
-        if (number1.length() > 1){
+        }else if (number1.length() > 1){
             i1.initializationHundred(number1);
         }
-        if(number2.length() == 1 || number2.charAt(0) == 'X'){
+        if(number2.length() == 1 || number1.charAt(0) == 'I' || number1.charAt(0) == 'V'){
             i2.initializationDes(number2);
-        }
-        if (number2.length() > 1){
+        }else if (number2.length() > 1){
             i2.initializationHundred(number2);
         }
 
