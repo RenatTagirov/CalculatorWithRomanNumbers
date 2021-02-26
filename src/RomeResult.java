@@ -12,15 +12,15 @@ public class RomeResult {
             result = romeDes[num];
             System.out.println(result);
         }
-        else if (num >= 10 && num < 100){
+        else if (num < 100){
             result = romeHundred[num / 10] + romeDes[num % 10];
             System.out.println(result);
         }
-        else if (num >= 100 && num < 1000){
+        else if (num < 1000){
             result = rometTousand[num / 100] + romeHundred[num / 10 % 10] + romeDes[num % 10];
             System.out.println(result);
         }
-        else if (num >= 1000 && num <= 10000){
+        else if (num <= 10000){
             result = rometTenTousand[num / 1000] + rometTousand[num / 100 % 10] + romeHundred[num / 10 % 10] + romeDes[num % 10];
             System.out.println(result);
         }
