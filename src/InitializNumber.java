@@ -4,82 +4,80 @@ public class InitializNumber {
     public InitializNumber(){};
 
     //Массив проверки на десятичные обычные
-    private String[] numberTens = {"", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+    private final String[] numberTen = {"", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
     //Массив проверки на сотые обычные
-    private String[] numberHundred = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
+    private final String[] numberHundred = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
     //Массив проверки на сотые Римские
-    private String[] romeNum = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"};
+    private final String[] romeTen = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"};
     //Массив проверки на сотые Римские
-    private String[] romeHundred = {"", "X", "XX", "XXX", "XXXX", "L", "LX", "LXX", "LXXX", "LXXXX", "C"};
-    private String[] romeDes = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX",};
+    private final String[] romeHundred = {"", "X", "XX", "XXX", "XXXX", "L", "LX", "LXX", "LXXX", "LXXXX", "C"};
+    private final String[] romeThousand = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX",};
 
     String resulr = " ";
-    int numArr;
-    int coun;
+    int numOperation;
+    int countOperation;
 
-    public String initializationDes(String a){
+    public void initializationDes(String a){
 
         //Проверка на десятичные
         if (resulr.equals(" ")){
-            for (int i = 0; i < numberTens.length; i++) {
-                if (a.equals(numberTens[i])) {
-                    resulr = numberTens[i];
-                    numArr = i;
+            for (int i = 0; i < numberTen.length; i++) {
+                if (a.equals(numberTen[i])) {
+                    resulr = numberTen[i];
+                    numOperation = i;
                 }
             }
             if (!resulr.equals(" ")) {
-                coun = 1;
+                countOperation = 1;
             }
         }
         //Проверка на Римские десятичные
         if (resulr.equals(" ")){
-            for (int i = 0; i < romeNum.length; i++){
-                if (a.equals(romeNum[i])){
-                    resulr = romeNum[i];
-                    numArr = i;
+            for (int i = 0; i < romeTen.length; i++){
+                if (a.equals(romeTen[i])){
+                    resulr = romeTen[i];
+                    numOperation = i;
                 }
             }
             if (!resulr.equals(" ")) {
-                coun = 2;
+                countOperation = 2;
             }
         }
-        return resulr;
     }
 
-    public String initializationHundred(String a) {
+    public void initializationHundred(String a) {
 
         //Проверка на сотые
         if (resulr.equals(" ")){
             String str = "";
-            for (int i = 1; i < numberTens.length; i++) {
+            for (int i = 1; i < numberTen.length; i++) {
                 for (int j = 0; j < numberHundred.length; j++) {
-                    if (a.equals(numberTens[i] + numberHundred[j])) {
-                        resulr = numberTens[i] + numberHundred[j];
+                    if (a.equals(numberTen[i] + numberHundred[j])) {
+                        resulr = numberTen[i] + numberHundred[j];
                         str = "" + i + j;
-                        numArr = Integer.parseInt(str);
+                        numOperation = Integer.parseInt(str);
                     }
                 }
             }
             if (!resulr.equals(" ")){
-                coun = 3;
+                countOperation = 3;
             }
         }
         //Проверка на Римские сотые
         if (resulr.equals(" ")){
             String str = "";
             for (int i = 1; i < romeHundred.length; i++){
-                for (int j = 0; j < romeDes.length; j++) {
-                    if (a.equals(romeHundred[i] + romeDes[j])) {
-                        resulr = romeHundred[i] + romeDes[j];
+                for (int j = 0; j < romeThousand.length; j++) {
+                    if (a.equals(romeHundred[i] + romeThousand[j])) {
+                        resulr = romeHundred[i] + romeThousand[j];
                         str = "" + i + j;
-                        numArr = Integer.parseInt(str);
+                        numOperation = Integer.parseInt(str);
                     }
                 }
             }
             if (!resulr.equals(" ")) {
-                coun = 4;
+                countOperation = 4;
             }
         }
-        return resulr;
     }
 }
